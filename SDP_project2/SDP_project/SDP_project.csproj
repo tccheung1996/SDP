@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C27CC10-4E98-47E9-98F9-82D99B05BA20}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SDP_project</RootNamespace>
+    <AssemblyName>SDP_project</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.7.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.7.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.7.9\lib\net45\MySql.Data.Entity.EF5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="charity.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="country.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="currentevent.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="event.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eventtype.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Add_event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Add_event.Designer.cs">
+      <DependentUpon>Form_Add_event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Add_marathon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Add_marathon.Designer.cs">
+      <DependentUpon>Form_Add_marathon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_home.Designer.cs">
+      <DependentUpon>Form_Admin_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_marathon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_marathon.Designer.cs">
+      <DependentUpon>Form_Admin_marathon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Admin_runner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Admin_runner.Designer.cs">
+      <DependentUpon>Form_Admin_runner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_admin_sponsor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_admin_sponsor.Designer.cs">
+      <DependentUpon>Form_admin_sponsor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_BMI_BMR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_BMI_BMR.Designer.cs">
+      <DependentUpon>Form_BMI_BMR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_cert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_cert.Designer.cs">
+      <DependentUpon>Form_cert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_charity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_charity.Designer.cs">
+      <DependentUpon>Form_charity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_coo_home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_coo_home.Designer.cs">
+      <DependentUpon>Form_coo_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_runner_checkResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_runner_checkResult.Designer.cs">
+      <DependentUpon>Form_runner_checkResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_sponsor_home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_sponsor_home.Designer.cs">
+      <DependentUpon>Form_sponsor_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_viewCert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_viewCert.Designer.cs">
+      <DependentUpon>Form_viewCert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_countryCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_countryCode.Designer.cs">
+      <DependentUpon>Form_countryCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Edit_Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Edit_Event.Designer.cs">
+      <DependentUpon>Form_Edit_Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Edit_marathon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Edit_marathon.Designer.cs">
+      <DependentUpon>Form_Edit_marathon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_eventInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_eventInfo.Designer.cs">
+      <DependentUpon>Form_eventInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_home.Designer.cs">
+      <DependentUpon>Form_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_login.Designer.cs">
+      <DependentUpon>Form_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_payment.Designer.cs">
+      <DependentUpon>Form_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_registration.Designer.cs">
+      <DependentUpon>Form_registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_runner_home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_runner_home.Designer.cs">
+      <DependentUpon>Form_runner_home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_runner_join.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_runner_join.Designer.cs">
+      <DependentUpon>Form_runner_join.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_runner_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_runner_profile.Designer.cs">
+      <DependentUpon>Form_runner_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gender.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loading.Designer.cs">
+      <DependentUpon>loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="marathon.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="racekitoption.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registration.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registrationevent.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="registrationstatus.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="result.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="role.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="runner.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sponsorship.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="user.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="volunteer.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form_Add_event.resx">
+      <DependentUpon>Form_Add_event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Add_marathon.resx">
+      <DependentUpon>Form_Add_marathon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_home.resx">
+      <DependentUpon>Form_Admin_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_marathon.resx">
+      <DependentUpon>Form_Admin_marathon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_runner.resx">
+      <DependentUpon>Form_Admin_runner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_admin_sponsor.resx">
+      <DependentUpon>Form_admin_sponsor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_BMI_BMR.resx">
+      <DependentUpon>Form_BMI_BMR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_cert.resx">
+      <DependentUpon>Form_cert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_charity.resx">
+      <DependentUpon>Form_charity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_coo_home.resx">
+      <DependentUpon>Form_coo_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_runner_checkResult.resx">
+      <DependentUpon>Form_runner_checkResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_sponsor_home.resx">
+      <DependentUpon>Form_sponsor_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_viewCert.resx">
+      <DependentUpon>Form_viewCert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_countryCode.resx">
+      <DependentUpon>Form_countryCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Edit_Event.resx">
+      <DependentUpon>Form_Edit_Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Edit_marathon.resx">
+      <DependentUpon>Form_Edit_marathon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_eventInfo.resx">
+      <DependentUpon>Form_eventInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_home.resx">
+      <DependentUpon>Form_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_login.resx">
+      <DependentUpon>Form_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_payment.resx">
+      <DependentUpon>Form_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_registration.resx">
+      <DependentUpon>Form_registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_runner_home.resx">
+      <DependentUpon>Form_runner_home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_runner_join.resx">
+      <DependentUpon>Form_runner_join.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_runner_profile.resx">
+      <DependentUpon>Form_runner_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loading.resx">
+      <DependentUpon>loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model2.edmx.diagram">
+      <DependentUpon>Model2.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model2.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

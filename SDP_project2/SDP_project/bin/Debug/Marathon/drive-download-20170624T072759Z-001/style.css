@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    font-family: "Helvetica Neue Light", helvetica, sans-serif;
+    max-width: 70em;
+    margin: 0 auto;
+}
+li {
+    line-height: 1.5em;
+}
+p {
+    font-size: 0.875em;
+    margin: 0.3em 0;
+}
+
+h1 {
+    text-shadow: 1px 1px 1px;
+    font-size: 4em;
+    margin: 1em 0;
+}
+
+h2 {
+    font-size: 1.125em;
+    margin: 0.5em 0;
+}
+
+h3 {
+    text-shadow: 2px 2px 2px;
+    font-size: 1.5em;
+    margin: 0.8em 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body > * {
+    padding: 0 0.5em;
+    margin: 0.5em 0;
+}
+.img-left{
+    float: left;
+}
+.img-right{
+    float: right;
+}
+.text-center{
+    text-align: center;
+}
+
+.next{
+    background: url(images/1492896366_next.png) no-repeat;
+    background-position: right;
+    display: block;
+    text-align: right;
+}
+    
+
+.mypicture{display: none;}
+
+header .logo {
+    display: inline-block;
+    width: 40%;
+    padding-right: 1em;
+    vertical-align: middle;
+    float: left;
+}
+
+.site-title {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+header h1 {
+    margin: 0;
+    text-align: right;
+    font-family: lobster;
+}
+
+
+/* left column */
+#supplementary, #main-nav {
+    color: white;
+    float: left;
+    width: 25%;
+    border: none;
+}
+/* right column */
+#main-content {
+    float: right;
+    width: 75%;
+}
+
+#nav-inner {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+
+#nav-inner li:not(:first-child) {
+    margin: 0.3em 0;
+}
+
+#nav-inner li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #555;
+    padding: 0.5em;
+    border: 0px solid #bbb;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+#nav-inner li a:hover {
+    background-color: #1576bf;
+    color: #fff;
+    border-color: #fff;
+}
+
+#main-content > * {
+    margin: 0.5em 0;
+}
+
+/* position feature article heading overlaid on feature image */
+#feature p {
+    font-size: 1.0em;
+    line-height: 1.5em;
+}
+#feature {
+    position: relative;
+    margin-top: 0;
+}
+#feature h1 {
+    position: absolute;
+    bottom: 0.5em;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    margin: 0;
+    font-size: 3em;
+}
+
+#feature img {
+    width: 100%;
+    border-radius: 3px;
+}
+
+#recent > article {
+    padding: 0.5em ;
+}
+
+#recent > article {
+    border-top: 1px dotted #ccc;
+    width: 25%;
+    float: left;
+    padding: 0.5em;
+    margin: 0;
+    border-top: 1px dotted #ccc;
+}
+
+#recent > article img {
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, .5);
+    border-radius: 3px;
+    margin: 0.5em 0;
+}
+
+#supplementary {
+    padding: 1em;
+    color: #333;
+
+}
+
+#footer {
+    text-align: center;
+    background-color: #ddd;
+    border-radius: 5px;
+    padding: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    clear: both;
+}
+
+@media (max-width: 829px) {
+    #main-content, #main-nav, #supplementary {
+        float: none;
+        width: auto;
+    }
+
+    #nav-inner li {
+        float: left;
+        margin: 0;
+    }
+
+    #nav-inner li:not(:first-child) {
+        margin: 0;
+    }
+    #nav-inner li:not(:last-child) {
+        margin-right: 1em;
+    }
+
+    #nav-inner li a {
+        padding: 0.5em 1em;
+    }
+
+    #recent article {
+        width: 48%;
+        float: left;
+        margin: 1%;
+        padding: 1em;
+        border-top: 1px dotted #ccc;
+    }
+
+    header h1 {
+        font-size: 3.5em;
+    }
+
+    header .logo {
+        min-width: 70px;
+    }
+    #main-content > #feature {
+        margin-left: -0.5em;
+        margin-right: -0.5em;
+    }
+    #feature img {
+        border-radius: 0;
+    }
+    #feature h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 575px) {
+
+    header h1 {
+        font-size: 1.5em;
+    }
+    #nav-inner li {
+        float: none
+    }
+
+    #nav-inner li a {
+        margin: 0.5em 0;
+    }
+
+    #nav-inner li:not(:last-child) {
+        margin-right: 0;
+    }
+
+    #feature h1 {
+        font-size: 1.5em;
+    }
+
+    #recent article {
+        width: 100%;
+        float: none;
+    }
+
+    #supplementary {
+        border-top: 1px dashed #ccc;
+        padding: 1em;
+    }
+
+    #footer {
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+    }
+}

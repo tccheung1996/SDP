@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c71754210c9c4bebb7ffc46e0baf0c99" Name="Diagram1">
+        <EntityTypeShape EntityType="marathonskills2017Model1.charity" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.country" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.event" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.eventtype" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.gender" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.marathon" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.racekitoption" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.registration" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.registrationevent" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.registrationstatus" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.role" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.runner" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.sponsorship" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.user" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.volunteer" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_4" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_8" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.marathon_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.marathon_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.runner_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.runner_ibfk_6" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.volunteer_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.volunteer_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.event_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.event_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.event_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.event_ibfk_4" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registrationevent_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registrationevent_ibfk_4" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.runner_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.runner_ibfk_5" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.volunteer_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.volunteer_ibfk_4" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_6" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_5" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registration_ibfk_7" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registrationevent_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.registrationevent_ibfk_3" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.sponsorship_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.sponsorship_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.user_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.user_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.runner_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="marathonskills2017Model1.runner_ibfk_4" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.result" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="marathonskills2017Model1.currentevent" Width="1.5" PointX="9.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

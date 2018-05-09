@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="marathonskills2017Model1.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="charity">
+    <Key>
+      <PropertyRef Name="CharityId" />
+    </Key>
+    <Property Name="CharityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CharityName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CharityDescription" Type="varchar" MaxLength="2000" />
+    <Property Name="CharityLogo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="CountryCode" />
+    </Key>
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CountryFlag" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'def.marathonskills2017.currentevent' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="currentevent">
+    <Key>
+      <PropertyRef Name="eventName" />
+    </Key>
+    <Property Name="eventName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="EventName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EventTypeId" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="MarathonId" Type="tinyint" Nullable="false" />
+    <Property Name="StartDateTime" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="MaxParticipants" Type="smallint" />
+  </EntityType>
+  <EntityType Name="eventtype">
+    <Key>
+      <PropertyRef Name="EventTypeId" />
+    </Key>
+    <Property Name="EventTypeId" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="EventTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gender">
+    <Key>
+      <PropertyRef Name="Gender" />
+    </Key>
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="marathon">
+    <Key>
+      <PropertyRef Name="MarathonId" />
+    </Key>
+    <Property Name="MarathonId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarathonName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="80" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="YearHeld" Type="smallint" />
+  </EntityType>
+  <EntityType Name="racekitoption">
+    <Key>
+      <PropertyRef Name="RaceKitOptionId" />
+    </Key>
+    <Property Name="RaceKitOptionId" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="RaceKitOption" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="registration">
+    <Key>
+      <PropertyRef Name="RegistrationId" />
+    </Key>
+    <Property Name="RegistrationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RunnerId" Type="int" Nullable="false" />
+    <Property Name="RegistrationDateTime" Type="datetime" Precision="0" />
+    <Property Name="RaceKitOptionId" Type="char" MaxLength="1" />
+    <Property Name="RegistrationStatusId" Type="tinyint" />
+    <Property Name="Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CharityId" Type="int" />
+    <Property Name="SponsorshipTarget" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="registrationevent">
+    <Key>
+      <PropertyRef Name="RegistrationEventId" />
+    </Key>
+    <Property Name="RegistrationEventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationId" Type="int" />
+    <Property Name="runnerID" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="BibNumber" Type="smallint" />
+    <Property Name="RaceTime" Type="int" />
+  </EntityType>
+  <EntityType Name="registrationstatus">
+    <Key>
+      <PropertyRef Name="RegistrationStatusId" />
+    </Key>
+    <Property Name="RegistrationStatusId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationStatus" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="result">
+    <Key>
+      <PropertyRef Name="resultID" />
+    </Key>
+    <Property Name="resultID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="runnerID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="marathon" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="event" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="runner">
+    <Key>
+      <PropertyRef Name="RunnerId" />
+    </Key>
+    <Property Name="RunnerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="DateOfBirth" Type="datetime" Precision="0" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" />
+    <Property Name="registrationstatus" Type="varchar" MaxLength="50" />
+    <Property Name="eventtype" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="sponsorship">
+    <Key>
+      <PropertyRef Name="SponsorshipId" />
+    </Key>
+    <Property Name="SponsorshipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SponsorName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="RegistrationId" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="80" />
+    <Property Name="LastName" Type="varchar" MaxLength="80" />
+    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="volunteer">
+    <Key>
+      <PropertyRef Name="VolunteerId" />
+    </Key>
+    <Property Name="VolunteerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="80" />
+    <Property Name="LastName" Type="varchar" MaxLength="80" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="marathon_ibfk_1">
+    <End Role="country" Type="Self.country" Multiplicity="1" />
+    <End Role="marathon" Type="Self.marathon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="marathon">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="marathon_ibfk_2">
+    <End Role="country" Type="Self.country" Multiplicity="1" />
+    <End Role="marathon" Type="Self.marathon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="marathon">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="runner_ibfk_1">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="runner" Type="Self.runner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="runner">
+        <PropertyRef Name="Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="runner_ibfk_2">
+    <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+    <End Role="runner" Type="Self.runner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="Gender" />
+      </Principal>
+      <Dependent Role="runner">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="runner_ibfk_3">
+    <End Role="country" Type="Self.country" Multiplicity="0..1" />
+    <End Role="runner" Type="Self.runner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="runner">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="runner_ibfk_4">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="runner" Type="Self.runner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="runner">
+        <PropertyRef Name="Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="runner_ibfk_5">
+    <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+    <End Role="runner" Type="Self.runner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="Gender" />
+      </Principal>
+      <Dependent Role="runner">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="runner_ibfk_6">
+    <End Role="country" Type="Self.country" Multiplicity="0..1" />
+    <End Role="runner" Type="Self.runner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="runner">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sponsorship_ibfk_1">
+    <End Role="registration" Type="Self.registration" Multiplicity="1" />
+    <End Role="sponsorship" Type="Self.sponsorship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registration">
+        <PropertyRef Name="RegistrationId" />
+      </Principal>
+      <Dependent Role="sponsorship">
+        <PropertyRef Name="RegistrationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="sponsorship_ibfk_2">
+    <End Role="registration" Type="Self.registration" Multiplicity="1" />
+    <End Role="sponsorship" Type="Self.sponsorship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="registration">
+        <PropertyRef Name="RegistrationId" />
+      </Principal>
+      <Dependent Role="sponsorship">
+        <PropertyRef Name="RegistrationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_ibfk_1">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="user_ibfk_2">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="volunteer_ibfk_1">
+    <End Role="country" Type="Self.country" Multiplicity="1" />
+    <End Role="volunteer" Type="Self.volunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="volunteer">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="volunteer_ibfk_2">
+    <End Role="gender" Type="Self.gender" Multiplicity="1" />
+    <End Role="volunteer" Type="Self.volunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="Gender" />
+      </Principal>
+      <Dependent Role="volunteer">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="volunteer_ibfk_3">
+    <End Role="country" Type="Self.country" Multiplicity="1" />
+    <End Role="volunteer" Type="Self.volunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="volunteer">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="volunteer_ibfk_4">
+    <End Role="gender" Type="Self.gender" Multiplicity="1" />
+    <End Role="volunteer" Type="Self.volunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="Gender" />
+      </Principal>
+      <Dependent Role="volunteer">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="marathonskills2017Model1StoreContainer">
+    <EntitySet Name="charity" EntityType="Self.charity" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="country" EntityType="Self.country" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="event" EntityType="Self.event" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="eventtype" EntityType="Self.eventtype" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="gender" EntityType="Self.gender" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="marathon" EntityType="Self.marathon" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="racekitoption" EntityType="Self.racekitoption" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="registration" EntityType="Self.registration" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="registrationevent" EntityType="Self.registrationevent" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="registrationstatus" EntityType="Self.registrationstatus" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="result" EntityType="Self.result" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="role" EntityType="Self.role" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="runner" EntityType="Self.runner" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="sponsorship" EntityType="Self.sponsorship" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="volunteer" EntityType="Self.volunteer" Schema="marathonskills2017" store:Type="Tables" />
+    <EntitySet Name="currentevent" EntityType="Self.currentevent" store:Type="Tables" store:Schema="marathonskills2017">
+      <DefiningQuery>SELECT
+`currentevent`.`eventName`
+FROM `currentevent` AS `currentevent`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="marathon_ibfk_1" Association="Self.marathon_ibfk_1">
+      <End Role="country" EntitySet="country" />
+      <End Role="marathon" EntitySet="marathon" />
+    </AssociationSet>
+    <AssociationSet Name="marathon_ibfk_2" Association="Self.marathon_ibfk_2">
+      <End Role="country" EntitySet="country" />
+      <End Role="marathon" EntitySet="marathon" />
+    </AssociationSet>
+    <AssociationSet Name="runner_ibfk_1" Association="Self.runner_ibfk_1">
+      <End Role="user" EntitySet="user" />
+      <End Role="runner" EntitySet="runner" />
+    </AssociationSet>
+    <AssociationSet Name="runner_ibfk_2" Association="Self.runner_ibfk_2">
+      <End Role="gender" EntitySet="gender" />
+      <End Role="runner" EntitySet="runner" />
+    </AssociationSet>
+    <AssociationSet Name="runner_ibfk_3" Association="Self.runner_ibfk_3">
+      <End Role="country" EntitySet="country" />
+      <End Role="runner" EntitySet="runner" />
+    </AssociationSet>
+    <AssociationSet Name="runner_ibfk_4" Association="Self.runner_ibfk_4">
+      <End Role="user" EntitySet="user" />
+      <End Role="runner" EntitySet="runner" />
+    </AssociationSet>
+    <AssociationSet Name="runner_ibfk_5" Association="Self.runner_ibfk_5">
+      <End Role="gender" EntitySet="gender" />
+      <End Role="runner" EntitySet="runner" />
+    </AssociationSet>
+    <AssociationSet Name="runner_ibfk_6" Association="Self.runner_ibfk_6">
+      <End Role="country" EntitySet="country" />
+      <End Role="runner" EntitySet="runner" />
+    </AssociationSet>
+    <AssociationSet Name="sponsorship_ibfk_1" Association="Self.sponsorship_ibfk_1">
+      <End Role="registration" EntitySet="registration" />
+      <End Role="sponsorship" EntitySet="sponsorship" />
+    </AssociationSet>
+    <AssociationSet Name="sponsorship_ibfk_2" Association="Self.sponsorship_ibfk_2">
+      <End Role="registration" EntitySet="registration" />
+      <End Role="sponsorship" EntitySet="sponsorship" />
+    </AssociationSet>
+    <AssociationSet Name="user_ibfk_1" Association="Self.user_ibfk_1">
+      <End Role="role" EntitySet="role" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="user_ibfk_2" Association="Self.user_ibfk_2">
+      <End Role="role" EntitySet="role" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="volunteer_ibfk_1" Association="Self.volunteer_ibfk_1">
+      <End Role="country" EntitySet="country" />
+      <End Role="volunteer" EntitySet="volunteer" />
+    </AssociationSet>
+    <AssociationSet Name="volunteer_ibfk_2" Association="Self.volunteer_ibfk_2">
+      <End Role="gender" EntitySet="gender" />
+      <End Role="volunteer" EntitySet="volunteer" />
+    </AssociationSet>
+    <AssociationSet Name="volunteer_ibfk_3" Association="Self.volunteer_ibfk_3">
+      <End Role="country" EntitySet="country" />
+      <End Role="volunteer" EntitySet="volunteer" />
+    </AssociationSet>
+    <AssociationSet Name="volunteer_ibfk_4" Association="Self.volunteer_ibfk_4">
+      <End Role="gender" EntitySet="gender" />
+      <End Role="volunteer" EntitySet="volunteer" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
